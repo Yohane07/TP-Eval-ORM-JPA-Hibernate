@@ -1,11 +1,9 @@
 package fr.epsi.b3.bo;
 
-import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
 @Entity
 @Table(name = "Address")
 public class Address {
@@ -19,6 +17,9 @@ public class Address {
 
     @Column(name = "couleur", nullable = false)
     private String couleur;
+
+    @OneToOne
+    private Petstore petstore;
 
     public Address() {
 

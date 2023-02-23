@@ -3,8 +3,8 @@ package fr.epsi.b3.bo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "Petstore")
 public class Petstore {
@@ -17,6 +17,15 @@ public class Petstore {
 
     @Column(name = "managerName", nullable = false)
     private String managerName;
+    @ManyToMany(mappedBy = "petstores")
+    private Set<Product>products;
+
+    @OneToMany(mappedBy = "petstore")
+    private Set<Animal>animals;
+
+    @OneToOne
+    private Address Address;
+
 
     public Petstore() {
 

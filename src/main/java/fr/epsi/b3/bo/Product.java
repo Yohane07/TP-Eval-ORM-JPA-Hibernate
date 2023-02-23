@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Data
@@ -29,6 +30,12 @@ public class Product {
     @Column(name = "price", nullable = false)
     private Double price;
 
+    @ManyToMany
+    @JoinTable(name = "Petstore_Product",
+        joinColumns = @JoinColumn(name = "Product_Id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "Petstore_Id", referencedColumnName = "id")
+    )
+    private Set<Petstore>petstores;
 
     public Product() {
     }
