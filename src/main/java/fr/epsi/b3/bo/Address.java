@@ -12,17 +12,31 @@ public class Address {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "birth", nullable = false)
-    private Date birth;
+    @Column(name = "number", nullable = false)
+    private String number;
 
-    @Column(name = "couleur", nullable = false)
-    private String couleur;
+    @Column(name = "street", nullable = false)
+    private String street;
+
+    @Column(name = "zipcode", nullable = false)
+    private String zipcode;
+
+    @Column(name = "city", nullable = false)
+    private String city;
+
 
     @OneToOne
     private Petstore petstore;
 
     public Address() {
 
+    }
+
+    public Address(String number, String street, String zipcode, String city) {
+        this.number = number;
+        this.street = street;
+        this.zipcode = zipcode;
+        this.city = city;
     }
 
 
@@ -34,19 +48,44 @@ public class Address {
         this.id = id;
     }
 
-    public Date getBirth() {
-        return birth;
-    }
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-    public String getCouleur() {
-        return couleur;
+
+    public String getNumber() {
+        return number;
     }
 
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
+    public String getStreet() {
+        return street;
+    }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Petstore getPetstore() {
+        return petstore;
+    }
+
+    public void setPetstore(Petstore petstore) {
+        this.petstore = petstore;
+    }
 }

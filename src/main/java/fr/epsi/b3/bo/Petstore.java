@@ -1,7 +1,5 @@
 package fr.epsi.b3.bo;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -30,6 +28,18 @@ public class Petstore {
     public Petstore() {
 
     }
+    public Petstore(String name, String managerName, fr.epsi.b3.bo.Address address) {
+        this.name = name;
+        this.managerName = managerName;
+        Address = address;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+        product.getPetstores().add(this);
+    }
+
+
     public Long getId() {
         return id;
     }

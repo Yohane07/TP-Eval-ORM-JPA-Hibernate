@@ -1,7 +1,5 @@
 package fr.epsi.b3.bo;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -25,16 +23,20 @@ public abstract class Animal {
     @JoinColumn(name = "petstore_id")
     private Petstore petstore;
 
+
     public Animal() {
     }
 
-    public Animal(Long id, Date birth, String couleur, Petstore petstore) {
-        this.id = id;
+    public Animal(Date birth, String couleur) {
+        this.birth = birth;
+        this.couleur = couleur;
+    }
+
+    public Animal(Date birth, String couleur, Petstore petstore) {
         this.birth = birth;
         this.couleur = couleur;
         this.petstore = petstore;
     }
-
 
 
     public Date getBirth() {

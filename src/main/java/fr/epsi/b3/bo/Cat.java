@@ -1,33 +1,28 @@
 package fr.epsi.b3.bo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Animal")
 public class Cat extends Animal {
-    @Column(name ="livEnv", nullable = false)
-    private FishLivEnv livEnv;
+    @Column(name ="chipId", nullable = false)
+    private String chipId;
 
     public Cat() {
     }
 
-    public Cat(Long id, Date birth, String couleur, Petstore petstore, FishLivEnv livEnv) {
-        super(id, birth, couleur, petstore);
-        this.livEnv = livEnv;
+    public Cat(Date birth, String couleur, Petstore petstore, String chipId) {
+        super(birth, couleur, petstore);
+        this.chipId = chipId;
     }
 
-    public Cat(FishLivEnv livEnv) {
-        this.livEnv = livEnv;
+
+    public String getChipId() {
+        return chipId;
     }
 
-    public FishLivEnv getLivEnv() {
-        return livEnv;
-    }
-
-    public void setLivEnv(FishLivEnv livEnv) {
-        this.livEnv = livEnv;
+    public void setChipld(String chipld) {
+        this.chipId = chipId;
     }
 }
