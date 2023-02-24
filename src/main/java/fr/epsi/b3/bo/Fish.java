@@ -1,10 +1,13 @@
 package fr.epsi.b3.bo;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.util.Date;
 
+
+@Entity
 public class Fish extends Animal{
     @Column(name ="livingEnv", nullable = false)
     @Enumerated(EnumType.STRING)

@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Animal")
 public class Cat extends Animal {
     @Column(name ="chipId", nullable = false)
     private String chipId;

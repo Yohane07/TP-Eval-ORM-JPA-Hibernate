@@ -1,6 +1,7 @@
 package fr.epsi.b3.bo;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,6 +29,7 @@ public class Petstore {
     public Petstore() {
 
     }
+
     public Petstore(String name, String managerName, fr.epsi.b3.bo.Address address) {
         this.name = name;
         this.managerName = managerName;

@@ -1,11 +1,12 @@
 package fr.epsi.b3;
 
 import fr.epsi.b3.bo.*;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -67,6 +68,20 @@ public class Main {
         em.persist(nemo);
         em.persist(mrchat);
         em.persist(garfield);
+
+
+        em.getTransaction().commit();
+
+        Query q = em.createQuery("select id, birth, couleur from Animal where petstore.id = 1");
+        List resultList = q.getResultList();
+        System.out.println("Nombre d'animal: :" + resultList.size());
+
+        for (Object animal : resultList) {
+            System.out.println("Animal: " + animal);
+        }
+
+        em.close();
+        emf.close();
 
     }
 

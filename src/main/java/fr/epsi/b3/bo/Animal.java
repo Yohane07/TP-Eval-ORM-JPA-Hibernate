@@ -1,5 +1,7 @@
 package fr.epsi.b3.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,8 +21,9 @@ public abstract class Animal {
     @Column(name = "couleur", nullable = false)
     private String couleur;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "petstore_id")
+    @JsonIgnore
     private Petstore petstore;
 
 
